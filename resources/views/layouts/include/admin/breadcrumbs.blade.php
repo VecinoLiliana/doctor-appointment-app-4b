@@ -4,7 +4,7 @@
     <nav class="mb-2 block">
 
         {{-- order list--}}
-        <ol class ="flex flex-wrap text-slate-700 dark:text-slate-400 text-sm">
+        <ol class ="flex flex-wrap text-slate-700 text-sm">
             {{-- Recorre cada elemento del breadcrumb --}}
              @foreach ($breadcrumbs as $item)
                 {{-- Centra los li--}}

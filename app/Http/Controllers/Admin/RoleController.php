@@ -81,5 +81,6 @@ class RoleController extends Controller
     public function destroy(string $id)
     {
         //
+        //
     }
 }

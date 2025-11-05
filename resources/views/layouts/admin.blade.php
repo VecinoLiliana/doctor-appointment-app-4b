@@ -1,6 +1,7 @@
 @props([
     'title' => config('app.name', 'Laravel'),
-    'breadcrumbs' => []])
+    'breadcrumbs' => [],
+    ])
 
 <!DOCTYPE html>
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -18,7 +19,11 @@
             <!-- Scripts -->
             @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+            <!-- Font Awesome -->
             <script src="https://kit.fontawesome.com/5263ff3029.js" crossorigin="anonymous"></script>
+
+            <!-- Sweet Alert 2 -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
             {{-- WireUI --}}
             <wireui:scripts/>
@@ -36,6 +41,11 @@
             <!-- margen arriba de 14pix -->
             <div class= "mt-14 flex items-center justify-between w-full">
                 @include('layouts.include.admin.breadcrumbs', ['breadcrumbs' => $breadcrumbs ?? []])
+                @isset($action)
+                    <div class="ml-4">
+                        {{ $action }}
+                    </div>
+                @endisset
             </div>
             {{$slot}}
         </div>
@@ -45,6 +55,13 @@
             @livewireScripts
 
             <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+            {{-- Mostrar Sweet Alert 2 --}}
+            @if (@session('swal'))
+                <script>
+                    Swal.fire(@json(session('swal')));
+                </script>
+            @endif
 
         </body>
 </html>

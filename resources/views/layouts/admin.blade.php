@@ -63,5 +63,31 @@
                 </script>
             @endif
 
+            <script>
+                //Buscar todos los elementos de una clase específica
+                forms = document.querySelectorAll('.delete-form');
+                forms.forEach(form => {
+                    //Se pone pendiente de cualquier acción submit/ activa modo chismoso
+                    form.addEventListener('submit', function (e){
+                        //Evita que se envíe
+                        e.preventDefault();
+                        Swal.fire({
+                            title: "¿Estás seguro?",
+                            text: "No podrás revertir esto!",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "Sí, eliminar",
+                            cancelButtonText: "Cancelar"
+                        }).then((result) => {
+                            if (result.isConfirmed){
+                                //Borra el registro
+                                form.submit();
+                            }
+                        });
+                    })
+                });
+            </script>
         </body>
 </html>

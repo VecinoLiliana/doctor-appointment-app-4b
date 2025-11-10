@@ -11,6 +11,7 @@
         'name' => 'Nuevo',
     ],
 ]">
+
     <x-wire-card>
         <form action="{{route('admin.roles.store')}}" method="POST">
             @csrf
@@ -22,4 +23,5 @@
             </div>
         </form>
     </x-wire-card>
+
 </x-admin-layout>

@@ -28,6 +28,12 @@
             'href' => route('admin.patients.index'),
             'active' => request()->routeIs('admin.patients.*')
             ],
+            [
+                'name' => 'Doctores',
+                'icon' => 'fa-solid fa-user-doctor',
+                'href' => route('admin.doctors.index'),
+                'active' => request()->routeIs('admin.doctors.*')
+            ],
         ];
 @endphp
 
@@ -43,7 +49,7 @@
                     </div>
                     {{-- SI no existe, usa la etiqueta como estaba definida antes--}}
                 @else
-                    {{--REvisa si tiene submenú --}}
+                    {{--Revisa si tiene submenú --}}
                     @isset($link['submenu'])
                         <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
                             <span class = "w-6 h-6 inline-flex justify-center items-center text-gray-500">

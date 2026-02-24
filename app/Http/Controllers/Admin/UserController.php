@@ -53,12 +53,19 @@ class UserController extends Controller
             ]);
 
         //Si se crea paciente, enviíame al módulo de pacientes
-        if ($user::role('Paciente'))
+        if ($user->hasRole('Paciente'))
         {
             $patient = $user->patient()->create([]);
             return redirect()->route('admin.patients.index', $patient);
         }
-                return redirect()->route('admin.users.index') -> with('success', 'El usuario fue creado exitosamente');
+        //Si se crea doctor, envíame al módulo de doctores
+        if ($user->hasRole('Doctor'))
+        {
+            $doctor = $user->doctor()->create([]);
+            return redirect()->route('admin.doctors.index');
+        }
+
+        return redirect()->route('admin.users.index') -> with('success', 'El usuario fue creado exitosamente');
     }
 
     /**

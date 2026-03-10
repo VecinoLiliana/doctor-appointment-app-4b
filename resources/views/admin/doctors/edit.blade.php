@@ -41,7 +41,7 @@
                 <div class="grid grid-cols-1 gap-6">
                     {{-- Especialidad --}}
                     <div>
-                        <x-wire-native-select label="Especialidad" 
+                        <x-wire-native-select label="Especialidad"
                             name="speciality_id"
                             id="speciality_id"
                         >
@@ -56,17 +56,17 @@
 
                     {{-- Licencia --}}
                     <div>
-                        <x-wire-input label="Número de licencia médica" 
-                            name="medical_license_number" 
+                        <x-wire-input label="Número de licencia médica"
+                            name="medical_license_number"
                             id="medical_license_number"
-                            value="{{old('medical_license_number', $doctor->medical_license_number)}}" 
+                            value="{{old('medical_license_number', $doctor->medical_license_number)}}"
                         />
                     </div>
 
                     {{-- Biografia --}}
                     <div>
-                        <x-wire-textarea label="Biografía" 
-                            name="biography" 
+                        <x-wire-textarea label="Biografía"
+                            name="biografia"
                             id="biography"
                             rows="4"
                         >{{old('biography', $doctor->biography)}}</x-wire-textarea>

@@ -62,7 +62,7 @@ class UserController extends Controller
         if ($user->hasRole('Doctor'))
         {
             $doctor = $user->doctor()->create([]);
-            return redirect()->route('admin.doctors.index');
+            return redirect()->route('admin.doctors.edit', $doctor);
         }
 
         return redirect()->route('admin.users.index') -> with('success', 'El usuario fue creado exitosamente');

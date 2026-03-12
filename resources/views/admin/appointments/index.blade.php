@@ -1,21 +1,21 @@
-<x-admin-layout title="Pacientes | MediLink" :breadcrumbs="[
+<x-admin-layout title="Citas | MediLink" :breadcrumbs="[
     [
         'name' => 'Dashboard',
         'href' => route('admin.dashboard')
     ],
     [
-        'name' => 'Pacientes',
+        'name' => 'Citas',
     ],
 ]">
 
     <div class="mb-6 flex justify-end">
-        <a href="{{ route('admin.patients.create') }}" 
+        <a href="{{ route('admin.appointments.create') }}" 
            class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">
             <i class="fa-solid fa-plus mr-2"></i>
             Nuevo
         </a>
     </div>
 
-    @livewire('admin.datatables.patient-table')
+    @livewire('admin.datatables.appointment-table')
 
 </x-admin-layout>

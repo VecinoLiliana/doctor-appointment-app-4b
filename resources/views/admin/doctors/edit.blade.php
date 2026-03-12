@@ -28,10 +28,10 @@
                 </div>
                 <div class="flex space-x-3 mt-6 lg:mt-0">
                     <x-wire-button outline gray href="{{ route('admin.doctors.index')}}">Volver</x-wire-button>
-                    <x-wire-button type="submit">
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
                         <i class="fa-solid fa-check mr-2"></i>
                         Guardar cambios
-                    </x-wire-button>
+                    </button>
                 </div>
             </div>
         </x-wire-card>
@@ -66,7 +66,7 @@
                     {{-- Biografia --}}
                     <div>
                         <x-wire-textarea label="Biografía"
-                            name="biografia"
+                            name="biography"
                             id="biography"
                             rows="4"
                         >{{old('biography', $doctor->biography)}}</x-wire-textarea>

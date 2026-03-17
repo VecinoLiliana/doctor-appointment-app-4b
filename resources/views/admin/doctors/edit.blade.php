@@ -45,7 +45,7 @@
                             name="speciality_id"
                             id="speciality_id"
                         >
-                            <option value="">Seleccione una especialidad</option>
+                            <option value="">Seleccione una especialidad dentro de la lista</option>
                             @foreach($specialities as $speciality)
                                 <option value="{{ $speciality->id }}" @selected(old('speciality_id', $doctor->speciality_id) == $speciality->id)>
                                     {{ $speciality->name }}

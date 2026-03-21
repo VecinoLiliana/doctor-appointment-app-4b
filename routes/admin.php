@@ -33,3 +33,10 @@ Route::post('/consultations/store/{appointment}', [\App\Http\Controllers\Admin\C
 
 // Búsqueda de disponibilidad
 Route::post('/availability/search', \App\Http\Controllers\Admin\AvailabilityController::class . '@search')->name('admin.availability.search');
+
+// Gestión de WhatsApp
+Route::get('/whatsapp', [\App\Http\Controllers\Admin\WhatsAppController::class, 'index'])->name('admin.whatsapp.index');
+Route::post('/whatsapp/check-connection', [\App\Http\Controllers\Admin\WhatsAppController::class, 'checkConnection'])->name('admin.whatsapp.check');
+Route::post('/whatsapp/qr', [\App\Http\Controllers\Admin\WhatsAppController::class, 'getQRCode'])->name('admin.whatsapp.qr');
+Route::post('/whatsapp/send-reminders', [\App\Http\Controllers\Admin\WhatsAppController::class, 'sendReminders'])->name('admin.whatsapp.reminders');
+Route::post('/whatsapp/test', [\App\Http\Controllers\Admin\WhatsAppController::class, 'sendTestMessage'])->name('admin.whatsapp.test');

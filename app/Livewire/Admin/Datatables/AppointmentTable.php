@@ -28,7 +28,7 @@ class AppointmentTable extends DataTableComponent
                 ->sortable(),
             Column::make("Fecha", "date")
                 ->sortable()
-                ->format(fn($value) => $value->format('d/m/Y')),
+                ->format(fn($value) => \Carbon\Carbon::parse($value)->format('d/m/Y')),
             Column::make("Hora", "start_time")
                 ->sortable()
                 ->format(fn($value) => date('h:i A', strtotime($value))),

@@ -33,7 +33,7 @@
                 </div>
                 <div>
                     <p class="text-sm text-gray-500">Fecha y Hora</p>
-                    <p class="font-medium">{{ $appointment->date->format('d/m/Y') }} {{ $appointment->start_time->format('h:i A') }}</p>
+                    <p class="font-medium">{{ \Carbon\Carbon::parse($appointment->date)->format('d/m/Y') }} {{ \Carbon\Carbon::parse($appointment->start_time)->format('h:i A') }}</p>
                 </div>
             </div>
         </div>

@@ -7,6 +7,7 @@ use App\Models\Appointment;
 use App\Models\Patient;
 use App\Models\Doctor;
 use App\Models\Speciality;
+use App\Jobs\SendWhatsAppMessage;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -58,10 +59,13 @@ class AppointmentController extends Controller
 
         $appointment = Appointment::create($data);
 
+        // Enviar mensaje de confirmación por WhatsApp
+        SendWhatsAppMessage::dispatch($appointment, 'confirmation');
+
         session()->flash('swall', [
             'icon' => 'success',
             'title' => 'Cita Creada',
-            'text' => 'La cita fue creada exitosamente',
+            'text' => 'La cita fue creada exitosamente y se envió confirmación por WhatsApp',
         ]);
 
         return redirect()->route('admin.appointments.index');

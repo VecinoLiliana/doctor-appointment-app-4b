@@ -25,7 +25,7 @@ class RoleTable extends DataTableComponent
             Column::make("Fecha", "created_at")
                 ->sortable()
                 ->format(function($value) {
-                    return $value->format('d/m/Y');
+                    return \Carbon\Carbon::parse($value)->format('d/m/Y');
                 }),
             Column::make("Acciones", "action")
                 ->label(function($row) {

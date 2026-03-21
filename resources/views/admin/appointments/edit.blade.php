@@ -48,7 +48,7 @@
                         type="date" 
                         required 
                         :min="now()->format('Y-m-d')"
-                        :value="old('appointment_date', $appointment->appointment_date->format('Y-m-d'))"
+                        :value="old('appointment_date', \Carbon\Carbon::parse($appointment->appointment_date)->format('Y-m-d'))"
                     />
 
                     <x-wire-input 

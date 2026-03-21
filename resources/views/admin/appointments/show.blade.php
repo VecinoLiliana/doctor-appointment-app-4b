@@ -35,7 +35,7 @@
                     <dl class="space-y-2">
                         <div class="flex justify-between">
                             <dt class="text-gray-600">Fecha:</dt>
-                            <dd class="font-medium">{{ $appointment->appointment_date->format('d/m/Y') }}</dd>
+                            <dd class="font-medium">{{ \Carbon\Carbon::parse($appointment->appointment_date)->format('d/m/Y') }}</dd>
                         </div>
                         <div class="flex justify-between">
                             <dt class="text-gray-600">Hora:</dt>
